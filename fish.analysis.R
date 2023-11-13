@@ -8,3 +8,6 @@ fish_data_cat = fish_data %>%
 
 fish_data_cat = fish_data %>%
   mutate(length_cat = ifelse(length > 300, "big", "small"))
+
+#Had to leave for lab meeting and didn't get to exercise 3 and 4 with a partner,
+#but next time I see someone on github I'll do a little cloning.
