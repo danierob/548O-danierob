@@ -23,5 +23,21 @@ lotr_tidy <-
 lotr_tidy <- arrange(lotr_tidy, Gender)
 lotr_tidy
 
+# DO IT AGAIN!
+#bringing in the male and female dfs
+male <- read_csv(file.path("data", "Male.csv"))
+female <- read_csv(file.path("data", "Female.csv"))
+
+lotr_untidy <- bind_rows(male, female)
+str(lotr_untidy)
+
+lotr_untidy
+
+lotr_tidy <-
+  pivot_longer(lotr_untidy, cols=c(Elf, Hobbit, Man), names_to = 'Race', values_to = 'Words')
+lotr_tidy <- arrange(lotr_tidy, Gender)
+lotr_tidy
+
+
 
 
