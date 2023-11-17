@@ -72,6 +72,26 @@ lotr_tidy %>%
   unite(Race_Gender, Race, Gender) %>%
   spread(key = Race_Gender, value = Words)
 
+# And now do it with pivot_wider instead of spread
+
+#one variable per race sing pivot_wider:
+lotr_tidy %>%
+  pivot_wider(names_from = 'Race', values_from = 'Words')
+
+#one variable per gender sing pivot_wider:
+lotr_tidy %>%
+  pivot_wider(names_from = 'Gender', values_from = 'Words')
+
+#spread em out big time
+lotr_untidy_pivot <- lotr_tidy %>%
+  unite(Race_Gender, Race, Gender) %>%
+  pivot_wider(names_from = 'Race_Gender', values_from = 'Words')
+
+write.csv(lotr_untidy_pivot, "data/lotr_untidy_pivot")
+
+
+
+
 
 
 
