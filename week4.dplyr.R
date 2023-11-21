@@ -140,9 +140,20 @@ surveys3.5 <- surveys %>%
   group_by(year) %>%
   summarize(mass = mean(weight, na.rm = TRUE))
 
+#Filtering on multiple conditions
+filter(surveys, species_id == "DS", year > 1995)
+ #same as using &.....
+filter(surveys, species_id == "DS" & year > 1995)
 
+#or = |
+filter(surveys, species_id == "DS" | species_id == "DM" | species_id == "DO")
 
-
+#You can also filter based on aggregated values
+#If we wanted to estimate species weights only for species with > 100 individuals
+species_weights <- surveys %>%
+  group_by(species_id) %>%
+  filter(n() > 100) %>%
+  summarize(avg_weight = mean(weight, na.rm = TRUE))
 
 
 
