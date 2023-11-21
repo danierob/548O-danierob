@@ -102,6 +102,47 @@ summarize(surveys6, mean_mass = mean(weight, na.rm=TRUE)) #na.rm = TRUE good ide
 
 
 #PIPING %>%
+ds_weight_by_year <- surveys %>%
+  filter(species_id == "DS") %>%
+  group_by(year) %>%
+  summarize(avg_weight = mean(weight, na.rm = TRUE))
+
+#EXERCISE 3!
+
+#1. Use mutate(), select(), and na.omit() to create a new data frame with the year,
+#species_id, and weight in kilograms of each individual, with no null weights.
+surveys3.1 <- surveys %>%
+  mutate(kg = weight/1000) %>%
+  select(year, species_id, kg) %>%
+  na.omit()
+
+#2. Use the filter() and select() to get the year, month, day, and species_id
+#columns for all of the rows in the data frame where species_id is SH.
+surveys3.2 <- surveys %>%
+  filter(species_id == "SH") %>%
+  select(year, month, day, species_id)
+
+#3. Use the group_by() and summarize() functions to get a count of the number
+#of individuals in each species ID.
+surveys3.3 <- surveys %>%
+  group_by(species_id) %>%
+  summarize(abundance = n())
+
+#4. Use the group_by() and summarize() functions to get a count of the number
+#of individuals in each species ID in each year.
+surveys3.4 <- surveys %>%
+  group_by(year, species_id) %>%
+  summarize(abundance = n())
+
+#5. Use the filter(), group_by(), and summarize() functions to get the mean mass of species DO in each year.
+surveys3.5 <- surveys %>%
+  filter(species_id == "DO") %>%
+  group_by(year) %>%
+  summarize(mass = mean(weight, na.rm = TRUE))
+
+
+
+
 
 
 
