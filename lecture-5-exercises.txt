@@ -1,0 +1,12 @@
+13.2.1
+
+1) Imagine you wanted to draw (approximately) the route each plane flies from its origin to its destination. What variables would you need? What tables would you need to combine?
+
+I believe all you would need is origin, destination, and tail number. All of these variables are in flights, so you don't need to combine tables?
+
+2)I forgot to draw the relationship between weather and airports. What is the relationship and how should it appear in the diagram?
+
+The relationships is origin (weather) and the faa code (airports), on the diagram it would appear as a double arrow line connecting weather and airports?
+
+3)weather only contains information for the origin (NYC) airports. If it contained weather records for all airports in the USA, what additional relation would it define with flights?
+Since all flights are from NY ariports to other US airports, to have weather obs for all airports we would also need a dest column.
