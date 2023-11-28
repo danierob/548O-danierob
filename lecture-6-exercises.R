@@ -50,4 +50,22 @@ gsub("land", "\\1LAND", land)
 
 
 
+#fixed() takes string literally
+(strings <- c("Axbc", "A.bc"))
+pattern <- "A.b"
+grep(pattern, strings, value = TRUE)
+grep(pattern, strings, value = TRUE, fixed = TRUE)
+
+#messing with uppercase/lowercase
+pattern <- "a.b"
+grep(pattern, strings, value = TRUE)
+grep(pattern, strings, value = TRUE, ignore.case = TRUE)
+
+
+#Exercise 4: Find continents in Gapminder with letter o in it.
+#Hint: there should be two continents!
+grep("o", levels(gDat$continent), value = TRUE, ignore.case = TRUE)
+
+
+
 
