@@ -71,3 +71,34 @@ get_mass_from_length(214.44, 22, 1.46)
 #Use this function to estimate the mass of a dinosaur from an unknown taxonomic
 #group that is 16m long (by not setting a and b so that the default values are used).
 get_mass_from_length(length = 16)
+
+#Combining functions----
+
+#multiple functions in a row style
+est_shrub_mass <- function(volume){
+mass <- 2.65 * volume^0.9
+}
+
+shrub_volume <- calc_shrub_vol(0.8, 1.6, 2.0)
+shrub_mass <- est_shrub_mass(shrub_volume)
+
+#pipe style %>%
+library(dplyr)
+shrub_mass <- calc_shrub_vol(0.8, 1.6, 2.0) %>%
+  est_shrub_mass()
+
+#Exercise 4----
+#kg to lb (1:2.205)
+kg_to_lb <- function(kg){
+  lbs <- kg/2.205
+  return(lbs)
+}
+
+#12 m long Stegosaurus in pounds. a has been estimated as 10.95 and b has been estimated as 2.64
+get_mass_from_length(10.95,12,2.64) %>%
+  kg_to_lb()
+#tiny stego
+
+
+
+
