@@ -1,4 +1,4 @@
-
+#LECTURE 7 ----
 #Making Functions
 function_name <- function(inputs) {
   output_value <- do_something(inputs)
@@ -13,7 +13,7 @@ calc_shrub_vol <- function(length, width, height) {
 
 shrub_vol <- calc_shrub_vol(0.8, 1.6, 2.0)
 
-#Exercise 1
+#Exercise 1----
 
 lb_to_g <- function(pounds) {
   grams <- pounds*453.592
@@ -21,4 +21,27 @@ lb_to_g <- function(pounds) {
 }
 
 (hedgehog_weight <- lb_to_g(3.75))
+
+#Exercise 2----
+
+#this function determines mass (kg) from length (m) of dino skeleton
+#a=.73 and b=3.63 are parameter constants for therapoda
+lng_to_m_theropoda <- function(length){
+  mass <- 0.73 * length ^ 3.63
+  return(mass)
+}
+
+#16m long spinosaurus mass
+(spino_dino <- lng_to_m_theropoda(16))
+
+
+#making the code more robust by adding a and b params to get_mass_from_length()
+#rather than defining them as specific numbers that ony apply to one dino type
+get_mass_from_length <- function(a, length, b){
+  mass <- a * length ^ b
+  return(mass)
+}
+
+#use new function to find sauropoda mass, given a = 214.44, b = 1.46, and length is 26 m long
+(sauro_dino_mass <- get_mass_from_length(214.44, 26, 1.46))
 
