@@ -111,3 +111,71 @@ get_mass_from_length_by_name(12, "sauropoda")
 
 #A Ankylosauria that is 13 meters long.
 get_mass_from_length_by_name(13, "ankylosauria")
+
+
+#Can NEST conditionals inside of one another when things get thick
+est_mass <- function(volume, veg_type, age){
+  if (veg_type == "tree") {
+    if (age < 5) {                       #here we nest age condition w/in veg_type "tree" condition
+      mass <- 1.6 * volume^0.8
+    } else {
+      mass <- 2.65 * volume^0.9
+    }
+  } else if (veg_type == "grass" | veg_type == "shrub") {
+    mass <- 0.65 * volume^1.2
+  } else {
+    print("I don't know how to convert volume to mass for that vegetation type")
+    mass <- NA
+  }
+  return(mass)
+}
+
+est_mass(1.6, "tree", age = 2)
+est_mass(1.6, "shrub", age = 5)
+
+#Exercise 5
+
+#1: Modify it to print the numbers 2 through 16.
+for (i in 2:16){
+  print(i)
+}
+
+
+#2: Modify it to print each of these numbers multiplied by 3.
+for (i in 1:5){
+  print(i*3)
+}
+
+#3:  Complete the code below so that it prints out the name of each bird one line at a time.
+birds <- c('robin', 'woodpecker', 'blue jay', 'sparrow')
+for (i in 1:length(birds)) {
+  print(birds[i])
+}
+
+#4: Complete the code below so that it stores one area for each radius.
+radius <- c(1.3, 2.1, 3.5)
+areas <- vector(mode = "numeric", length = 3)    #use mode to specify vector type
+for (i in 1:length(radius)){
+  areas[i] <- pi * radius[i] ^ 2
+}
+areas
+
+#5. Complete the code below to calculate an area for each pair of lengths and widths,
+# store the areas in a vector, and after they are all calculated print them out:
+
+lengths = c(1.1, 2.2, 1.6)
+widths = c(3.5, 2.4, 2.8)
+areas <- vector(length = 3)
+for (i in 1:3) {
+  areas[i] <- lengths[i] * widths[i]
+}
+areas
+
+#can either specify known vector length or just tell it to be the same length as other vector
+lengths = c(1.1, 2.2, 1.6)
+widths = c(3.5, 2.4, 2.8)
+areas <- vector(length = length(lengths))
+for (i in 1:length(lengths)) {
+  areas[i] <- lengths[i] * widths[i]
+}
+areas
