@@ -10,7 +10,15 @@ dna1 <- "attattaggaccaca"
 dna2 <- "attattaggaacaca"
 
 #Exercise 1:
-w is greater than 10
-"green" is in colors
-x is greater than y
-Each value in masses is greater than 40.
+#1: w is greater than 10
+w > 10
+
+#2: "green" is in colors
+"green" %in% colors
+
+#3: x is greater than y
+x > y
+
+#4: Each value in masses is greater than 40.
+masses > 40
+
